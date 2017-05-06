@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class SignUpForm extends React.Component {
   constructor(props) {
@@ -49,7 +50,9 @@ class SignUpForm extends React.Component {
             <input name="passportNumber" type="text" placeholder="Passport Number"  value={this.state.passportNumber} onChange={this.handleInputChange} />
           </div>
           <div className="submit-form">
-            <input type="submit" value="Submit" />
+            <Link to="/upload">
+              <input type="submit" value="Submit" />
+            </Link>
           </div>
         </form>
       </div>
