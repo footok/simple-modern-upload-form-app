@@ -5,30 +5,52 @@ class SignUpForm extends React.Component {
     super(props);
     this.state = {
       data: [],
-      value: ''
+      firstName: '',
+      lastName: '',
+      dateOfBirth: '',
+      address: '',
+      passportNumber: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.value
+    const name = target.name;
+    this.setState({
+      [name]: value
+    });
   }
 
   handleSubmit(event) {
-    console.log("1");
-    alert('A name was submitted: ' + this.state.value);
+    alert('A name was submitted: ' + this.state.lastName);
     event.preventDefault();
   }
 
   render() {
     return (
       <div className="signup-form">
-        <form onSubmit={this.handleSubmit}>
-          <label>Name:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit" />
+        <form className="user-details" onSubmit={this.handleSubmit}>
+          <div className="first-name">
+            <input name="firstName" type="text" placeholder="First name" value={this.state.firstName} onChange={this.handleInputChange}/>
+          </div>
+          <div className="last-name">
+            <input name="lastName" type="text" placeholder="Last name" value={this.state.lastName} onChange={this.handleInputChange} />
+          </div>
+          <div className="date-of-birth">
+            <input name="dateOfBirth" type="text" placeholder="Date of Birth" value={this.state.dateOfBirth} onChange={this.handleInputChange} />
+          </div>
+          <div className="address">
+            <input name="address" type="text" placeholder="Address" value={this.state.address} onChange={this.handleInputChange} />
+          </div>
+          <div className="passport-number">
+            <input name="passportNumber" type="text" placeholder="Passport Number"  value={this.state.passportNumber} onChange={this.handleInputChange} />
+          </div>
+          <div className="submit-form">
+            <input type="submit" value="Submit" />
+          </div>
         </form>
       </div>
     );

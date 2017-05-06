@@ -1,0 +1,78 @@
+<style>
+html{
+}
+
+body {
+}
+
+h1 {
+  color: #dbdce1;
+}
+
+input[type="text"] {
+  display: block;
+  margin: 10px;
+  width: 100%;
+  height: 30px;
+  font-family: sans-serif;
+  font-size: 18px;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 10px;
+  width: 130px;
+  font-family: sans-serif;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  padding: 5px;
+  color: #727683;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  padding: 5px;
+  color: #727683;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  padding: 5px;
+  color: #727683;
+}
+:-moz-placeholder { /* Firefox 18- */
+  padding: 5px;
+  color: #727683;
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+#app {
+  height: 500px;
+}
+
+.signup-form {
+  margin: 10px;
+  background-color: white;
+  height: 300px;
+}
+
+.user-details {
+  display: flex;
+  margin: 100px;
+  background-color: white;
+  height: 300px;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.submit-form {
+  width: 50px;
+  font-size: 14px;
+}
+
+</style>
