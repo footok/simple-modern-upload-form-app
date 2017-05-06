@@ -1,0 +1,30 @@
+{
+  "name": "simple-modern-upload-form-app",
+  "version": "1.0.0",
+  "description": "Simple web application that can upload user details and some document files",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/footok/simple-modern-upload-form-app.git"
+  },
+  "keywords": [
+    "simple",
+    "web",
+    "app"
+  ],
+  "author": "Harry Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/footok/simple-modern-upload-form-app/issues"
+  },
+  "homepage": "https://github.com/footok/simple-modern-upload-form-app#readme",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.5.0",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
