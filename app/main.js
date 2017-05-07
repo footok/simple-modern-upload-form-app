@@ -12,7 +12,7 @@ ReactDOM.render((
   <Router>
     <div>
       <Route exact path="/" component={App}/>
-      <Route exact path="/upload" component={DocUploadForm}/>
+      <Route exact path="/upload/:value" component={DocUploadForm}/>
       <Route exact path="/complete" component={CompletePage}/>
     </div>
   </Router>

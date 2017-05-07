@@ -7,10 +7,8 @@ import { Link } from 'react-router-dom'
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Header/>
+      <div className="sign-up-page">
         <SignUpForm/>
-        <DocUploadForm/>
       </div>
     );
   }

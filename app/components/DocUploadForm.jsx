@@ -25,7 +25,7 @@ class DocUploadForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-form">
+      <div className="file-upload-form">
         <form className="user-details" onSubmit={this.uploadFile}>
           <FileUploadBox fileList={this.state.fileList} />
           <div className="submit-form">

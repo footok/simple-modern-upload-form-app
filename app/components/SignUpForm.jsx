@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import DocUploadForm from './DocUploadForm.jsx';
 
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      data: {},
       firstName: '',
       lastName: '',
       dateOfBirth: '',
@@ -20,13 +21,17 @@ class SignUpForm extends React.Component {
     const target = event.target;
     const value = target.value
     const name = target.name;
+
+    const detail = this.state.data;
+    detail[name] = value;
+
     this.setState({
-      [name]: value
+      [name]: value,
+      data: detail,
     });
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.lastName);
     event.preventDefault();
   }
 
@@ -34,6 +39,7 @@ class SignUpForm extends React.Component {
     return (
       <div className="signup-form">
         <form className="user-details" onSubmit={this.handleSubmit}>
+          <h1 className="signup-header">Sign up</h1>
           <div className="first-name">
             <input name="firstName" type="text" placeholder="First name" value={this.state.firstName} onChange={this.handleInputChange}/>
           </div>
@@ -50,9 +56,9 @@ class SignUpForm extends React.Component {
             <input name="passportNumber" type="text" placeholder="Passport Number"  value={this.state.passportNumber} onChange={this.handleInputChange} />
           </div>
           <div className="submit-form">
-            <Link to="/upload">
-              <input type="submit" value="Submit" />
-            </Link>
+          <Link to={`/upload/${this.state.test}`} >
+            <input type="submit" value="Submit" />
+          </Link>
           </div>
         </form>
       </div>
