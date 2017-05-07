@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import FileUploadBox from './FileUploadBox.jsx';
 
 class DocUploadForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      fileList: ['lease', 'driver license', 'passport', 
+        'foreign passport', 'utility bill', 'rent receipt'
+      ],
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.uploadFile = this.uploadFile.bind(this);
@@ -24,42 +27,7 @@ class DocUploadForm extends React.Component {
     return (
       <div className="signup-form">
         <form className="user-details" onSubmit={this.uploadFile}>
-          <div className="lease-file">
-            <input className="upload-file" placeholder="Please find your lease.." disabled="disabled" />
-            <label>Choose a file
-            <input className="upload-button" type="file" onChange={this.handleInputChange}/>
-            </label>
-          </div>
-          <div className="driver-license-file">
-            <input className="upload-file" placeholder="Please find your driver license.." disabled="disabled" />
-            <label>Choose a file
-            <input className="upload-button" type="file" onChange={this.handleInputChange}/>
-            </label>
-          </div>
-          <div className="passport-file">
-            <input className="upload-file" placeholder="Please find your passport.." disabled="disabled" />
-            <label>Choose a file
-            <input className="upload-button" type="file" onChange={this.handleInputChange}/>
-            </label>
-          </div>
-          <div className="foreign-passport-file">
-            <input id="upload-lease" className="upload-file" placeholder="Please find your foreign passport.." disabled="disabled" />
-            <label>Choose a file
-            <input className="upload-button" type="file" onChange={this.handleInputChange}/>
-            </label>
-          </div>
-          <div className="utility-bill-file">
-            <input className="upload-file" placeholder="Please find your utility bill.." disabled="disabled" />
-            <label>Choose a file
-            <input className="upload-button" type="file" onChange={this.handleInputChange}/>
-            </label>
-          </div>
-          <div className="rent-receipt-file">
-            <input className="upload-file" placeholder="Please find your rent receipt.." disabled="disabled" />
-            <label>Choose a file
-            <input className="upload-button" type="file" onChange={this.handleInputChange}/>
-            </label>
-          </div>
+          <FileUploadBox fileList={this.state.fileList} />
           <div className="submit-form">
             <Link to="/complete">
               <input type="submit" value="Submit" />
