@@ -8,11 +8,27 @@ body {
 
 h1 {
   color: #3a3c45;
+  font-family: sans-serif;
+}
+
+h2 {
+  color: #3a3c45;
+  font-family: sans-serif;
+}
+
+li {
+  color: #3a3c45;
+  font-family: sans-serif;
+}
+
+b {
+  color: #3a3c45;
+  font-family: sans-serif;
 }
 
 input[type="text"] {
   display: block;
-  margin: 10px;
+  margin: 10px 0px 10px 0px;
   width: 80%;
   height: 30px;
   font-family: sans-serif;
@@ -24,24 +40,28 @@ input[type="text"] {
   border-radius: 5px;
 }
 
+input[type="text"]:focus {
+  outline: none;
+}
+
 input[type="submit"] {
   cursor: pointer;
   color: white;
   display: block;
-  margin: 10px;
+  margin-top: 10px;
   width: 130px;
   font-family: sans-serif;
   font-size: 18px;
   border-radius: 5px;
-  background-color: #27b460;
+  background-color: #00affa;
   padding: 6px 10px 6px 10px;
 }
 
 input[type="submit"]:hover {
-  background-color: #1d8631;
+  background-color: #0081b8;
 }
 
-input[type="file"] {
+.upload-button {
   width: 0.1px;
   height: 0.1px;
   opacity: 0;
@@ -67,10 +87,6 @@ input[type="file"] {
   color: #727683;
 }
 
-input[type="text"]:focus {
-  outline: none;
-}
-
 .sign-up-page {
   width: 80%;
 }
@@ -88,9 +104,17 @@ input[type="text"]:focus {
 .user-details {
   display: flex;
   width: 100%;
-  margin: 100px;
-  background-color: white;
-  height: 300px;
+  margin-left: 100px;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-details-form {
+  display: flex;
+  width: 100%;
+  margin-left: 100px;
+  height: 100%;
   flex-direction: column;
   justify-content: space-around;
 }
@@ -100,8 +124,8 @@ input[type="text"]:focus {
   font-size: 14px;
 }
 
-.upload-file {
-  width: 40%;
+#upload-file {
+  width: 30%;
   padding-left: 5px;
   height: 30px;
   font-weight: 700;
@@ -126,7 +150,7 @@ label {
 }
 
 label:hover {
-  background-color: #005d85;
+  background-color: #0081b8;
 }
 
 </style>
