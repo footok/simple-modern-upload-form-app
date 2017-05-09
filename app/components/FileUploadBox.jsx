@@ -17,9 +17,9 @@ class FileUploadBox extends React.Component {
     var fileType = event.target.files[0].type.split('/')[1]
 
     if (fileType == "pdf" || fileType ==  "jpeg" || fileType == "png") {
-      document.querySelector("." + inputBox).value = file
+      document.querySelector("#" + inputBox + "-name").value = file
     } else {
-      document.querySelector("." + inputBox).value = "Please select file type with pdf, jpeg or png"
+      document.querySelector("#" + inputBox + "-name").value = "Please select file type with pdf, jpeg or png"
     }
   }
 
@@ -34,9 +34,10 @@ class FileUploadBox extends React.Component {
       <div>
       {fileList.map((file) =>
         <div key={`${file}-file`}>
-          <input id="upload-file" className={`${file}`} placeholder={"Please find your " + `${file}` + ".."} disabled="disabled" />
-          <label>Choose a file
-            <input name={`${file}`} className="upload-button" type="file" onChange={this.handleInputChange}/>
+          <input type="checkbox" name={`${file}`}/>
+          <input id={`${file}`+"-name"} className="file-upload-name" name={`${file}`} placeholder={`${file.toUpperCase()}`} disabled="disabled" />
+          <label className="upload-label">Choose a file
+            <input id={`${file}`+"-file"} name={`${file}`} className="file-upload-input" type="file" onChange={this.handleInputChange}/>
           </label>
         </div>
        )}

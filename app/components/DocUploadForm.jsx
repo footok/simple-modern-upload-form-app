@@ -8,19 +8,34 @@ class DocUploadForm extends React.Component {
     this.state = {
       citizenFileList: ['lease', 'driver-license', 'passport'],
       foreignerFileList: ['lease', 'driver-license', 'foreign-passport',
-                          'utility-bill', 'rent0receipt'],
+                          'utility-bill', 'rent-receipt'],
       citizen: true,
       foreigner: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
-    this.renderUpload = this.renderUpload.bind(this);
     this.uploadFile = this.uploadFile.bind(this);
   }
 
   handleInputChange(event) {
     var file = event.target.files[0].name
     document.querySelector(".upload-file").value = file
+  }
+
+  handleDelete(event) {
+    const target = event.target;
+    var uploadBox = document.querySelectorAll("#upload-file");
+    var checkBox = document.querySelectorAll("input[type=checkbox]");
+
+    checkBox.forEach(function(box) {
+      if (box.checked) {
+        var name = box.name;
+        document.querySelector("#" + name + "-name").value = name.toUpperCase();
+        document.querySelector("#" + name + "-file").value = "";
+        box.checked = false;
+      }
+    })
   }
 
   handleOptionChange(event) {
@@ -47,9 +62,9 @@ class DocUploadForm extends React.Component {
     var citizen = this.state.citizen;
 
     if(citizen) {
-      var upload = <FileUploadBox fileList={this.state.citizenFileList} />
+      var fileUploadBox = <FileUploadBox fileList={this.state.citizenFileList} />
     } else {
-      var upload = <FileUploadBox fileList={this.state.foreignerFileList} />
+      var fileUploadBox = <FileUploadBox fileList={this.state.foreignerFileList} />
     }
 
     return (
@@ -70,11 +85,12 @@ class DocUploadForm extends React.Component {
             <input checked={citizen} className="yes-button" type="radio" name="citizen" value="yes" onChange={this.handleOptionChange}/>Yes
             <input className="no-button" type="radio" name="citizen" value="no" onChange={this.handleOptionChange}/>No
           </div>
-          {upload}
-          <div className="submit-form">
+          {fileUploadBox}
+          <div className="submit-docs">
             <Link to="/complete">
-              <input type="submit" value="Submit" />
+              <input className="submit-button" type="submit" value="Submit" />
             </Link>
+              <input className="delete-button" type="button" value="Delete files" onClick={this.handleDelete}/>
           </div>
         </form>
       </div>

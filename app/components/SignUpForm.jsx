@@ -79,7 +79,7 @@ class SignUpForm extends React.Component {
           </div>
           <div className="submit-form">
           <Link to={`/upload/${this.state.data}`} >
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Continue"/>
           </Link>
           </div>
         </form>
