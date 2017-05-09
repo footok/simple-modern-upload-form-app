@@ -11,10 +11,11 @@ class SignUpForm extends React.Component {
       lastName: '',
       dateOfBirth: '',
       address: '',
-      passportNumber: ''
+      passportNumber: '',
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.enableButton = this.enableButton.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -35,11 +36,31 @@ class SignUpForm extends React.Component {
     const value = target.value
     const name = target.name;
     detail[index] = value;
+    let formValid = false;
+    var firstName = document.querySelector("input[name=firstName]").value;
+    var lastName = document.querySelector("input[name=lastName]").value;
+    var dateOfBirth = document.querySelector("input[name=dateOfBirth]").value;
+    var address = document.querySelector("input[name=address]").value;
+    var passportNumber = document.querySelector("input[name=passportNumber]").value;
+
+    // Check if all the inputs are filled
+    if (firstName && lastName && dateOfBirth && address && passportNumber) {
+      formValid = true;
+    }
+
+    this.enableButton(formValid);
 
     this.setState({
       [name]: value,
       data: detail,
     });
+  }
+
+  enableButton(valid) {
+    var button = document.querySelector("input[type=submit")
+    if (valid) {
+      button.removeAttribute("disabled");
+    }
   }
 
   handleSubmit(event) {
@@ -77,9 +98,10 @@ class SignUpForm extends React.Component {
           <div className="passport-number">
             <input id='4' name="passportNumber" type="text" placeholder="Passport Number"  value={this.state.passportNumber} onChange={this.handleInputChange} onBlur={this.handleBlur}/>
           </div>
+            <label className="signup-reminder">- Please fill out the form to continue - </label>
           <div className="submit-form">
           <Link to={`/upload/${this.state.data}`} >
-            <input type="submit" value="Continue"/>
+            <input type="submit" value="Next" disabled="true"/>
           </Link>
           </div>
         </form>

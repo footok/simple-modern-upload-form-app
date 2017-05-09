@@ -64,6 +64,11 @@ input[type="submit"]:hover {
   background-color: #0081b8;
 }
 
+input[type="submit"]:disabled {
+  cursor: not-allowed;
+  background-color: #e1e2e5;
+}
+
 .delete-button {
   cursor: pointer;
   color: white;
@@ -138,8 +143,14 @@ input[type="submit"]:hover {
   justify-content: space-around;
 }
 
+.signup-reminder {
+  color: #3a3c45;
+  font-family: sans-serif;
+}
+
 .submit-form {
-  width: 100px;
+  display: inline-block;
+  width: 100%;
 }
 
 .submit-docs {
