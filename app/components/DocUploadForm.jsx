@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import FileUploadBox from './FileUploadBox.jsx';
+import FileUploadBox from './common/FileUploadBox.jsx';
+import UserDetails from './common/UserDetails.jsx';
 
 class DocUploadForm extends React.Component {
   constructor(props) {
@@ -53,12 +54,7 @@ class DocUploadForm extends React.Component {
   }
 
   render() {
-    var params = this.props.match.params.value.split(',');
-    var firstName = params[0];
-    var lastName = params[1];
-    var dateOfBirth = params[2];
-    var address = params[3];
-    var passportNumber = params[4];
+    //var params = this.props.match.params.value.split(',');
     var citizen = this.state.citizen;
 
     if(citizen) {
@@ -67,18 +63,9 @@ class DocUploadForm extends React.Component {
       var fileUploadBox = <FileUploadBox fileList={this.state.foreignerFileList} />
     }
 
+    //<UserDetails params={params}/>
     return (
       <div className="file-upload-form">
-        <div className="user-details">
-          <h1>Hi {firstName} {lastName}</h1>
-          <h2>Here are your details.</h2>
-          <ul>
-            <li>Date of birth   - {dateOfBirth}</li>
-            <li>Address         - {address}</li>
-            <li>Passport Number - {passportNumber}</li>
-          </ul>
-          <h2> Please upload required documents</h2>
-        </div>
         <form className="user-details-form" onSubmit={this.uploadFile}>
           <div className="radio-button">
             <b>Are you citizen?</b>
