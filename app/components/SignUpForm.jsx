@@ -23,6 +23,21 @@ class SignUpForm extends React.Component {
     const target = event.target;
     const value = target.value
     const name = target.name;
+    let formValid = false;
+    var firstName = document.querySelector("input[name=firstName]").value;
+    var lastName = document.querySelector("input[name=lastName]").value;
+    var dateOfBirth = document.querySelector("input[name=dateOfBirth]").value;
+    var address = document.querySelector("input[name=address]").value;
+    var passportNumber = document.querySelector("input[name=passportNumber]").value;
+
+    // Check if all the inputs are filled
+    if (firstName && lastName && dateOfBirth && address && passportNumber) {
+      formValid = true;
+    } else {
+      formValid = false;
+    }
+
+    this.enableButton(formValid);
 
     this.setState({
       [name]: value,
@@ -36,19 +51,6 @@ class SignUpForm extends React.Component {
     const value = target.value
     const name = target.name;
     detail[index] = value;
-    let formValid = false;
-    var firstName = document.querySelector("input[name=firstName]").value;
-    var lastName = document.querySelector("input[name=lastName]").value;
-    var dateOfBirth = document.querySelector("input[name=dateOfBirth]").value;
-    var address = document.querySelector("input[name=address]").value;
-    var passportNumber = document.querySelector("input[name=passportNumber]").value;
-
-    // Check if all the inputs are filled
-    if (firstName && lastName && dateOfBirth && address && passportNumber) {
-      formValid = true;
-    }
-
-    this.enableButton(formValid);
 
     this.setState({
       [name]: value,
@@ -60,6 +62,8 @@ class SignUpForm extends React.Component {
     var button = document.querySelector("input[type=submit")
     if (valid) {
       button.removeAttribute("disabled");
+    } else {
+      button.disabled = true;
     }
   }
 
