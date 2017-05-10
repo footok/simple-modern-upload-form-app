@@ -6,6 +6,7 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      data: [],
       firstName: '',
       lastName: '',
       dateOfBirth: '',
@@ -101,7 +102,7 @@ class SignUpForm extends React.Component {
           <div className="passport-number">
             <input id='4' name="passportNumber" type="text" placeholder="Passport Number"  value={this.state.passportNumber} onChange={this.handleInputChange} onBlur={this.handleBlur}/>
           </div>
-            <label className="signup-reminder">- Please upload files to proceed - </label>
+            <label className="reminder">- Please fill out the form to continue - </label>
           <div className="submit-form">
           <Link to={`/upload/${this.state.data}`} >
             <input type="submit" value="Next" disabled="true"/>

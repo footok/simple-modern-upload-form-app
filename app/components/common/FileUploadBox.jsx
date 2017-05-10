@@ -86,7 +86,7 @@ class FileUploadBox extends React.Component {
           </label>
         </div>
        )}
-       <label className="signup-reminder">- Please fill out the form to proceed - </label>
+       <label className="reminder">- Please upload files to proceed - </label>
         <div className="submit-docs">
           <Link to="/complete">
             <input className="submit-button" type="submit" value="Submit" disabled="true"/>
