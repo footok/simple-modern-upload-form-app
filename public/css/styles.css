@@ -192,4 +192,9 @@ input[type="submit"]:disabled {
   background-color: #0081b8;
 }
 
+.complete-page {
+  color: #3a3c45;
+  font-family: sans-serif;
+  text-align: center;
+}
 </style>

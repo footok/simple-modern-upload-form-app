@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom'
 class FileUploadBox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      data: [],
-    };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.uploadFile = this.uploadFile.bind(this);
@@ -14,8 +11,6 @@ class FileUploadBox extends React.Component {
   }
 
   componentDidUpdate(nextProps) {
-    console.log('///', this.props);
-    console.log('///', nextProps);
     this.enableButton();
   }
 
@@ -81,7 +76,7 @@ class FileUploadBox extends React.Component {
     var fileList = this.props.fileList;
 
     return (
-      <div>
+      <div className="file-upload-box">
       {fileList.map((file) =>
         <div key={`${file}-file`}>
           <input type="checkbox" name={`${file}`}/>
@@ -91,6 +86,7 @@ class FileUploadBox extends React.Component {
           </label>
         </div>
        )}
+       <label className="signup-reminder">- Please fill out the form to proceed - </label>
         <div className="submit-docs">
           <Link to="/complete">
             <input className="submit-button" type="submit" value="Submit" disabled="true"/>

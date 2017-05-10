@@ -14,7 +14,6 @@ class DocUploadForm extends React.Component {
       foreigner: false,
     };
     this.handleOptionChange = this.handleOptionChange.bind(this);
-    this.uploadFile = this.uploadFile.bind(this);
   }
 
   handleOptionChange(event) {
@@ -25,10 +24,6 @@ class DocUploadForm extends React.Component {
       citizen: citizenPassport,
       foreigner: foreignerPassport,
     });
-  }
-
-  uploadFile(event) {
-    event.preventDefault();
   }
 
   render() {
@@ -44,7 +39,7 @@ class DocUploadForm extends React.Component {
     return (
       <div className="file-upload-form">
         <UserDetails params={params}/>
-        <form className="user-details-form" onSubmit={this.uploadFile}>
+        <form className="user-details-form">
           <div className="radio-button">
             <b>Are you citizen?</b>
             <input checked={citizen} className="yes-button" type="radio" name="citizen" value="yes" onChange={this.handleOptionChange}/>Yes
