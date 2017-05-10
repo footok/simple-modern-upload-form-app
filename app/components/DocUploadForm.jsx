@@ -13,30 +13,8 @@ class DocUploadForm extends React.Component {
       citizen: true,
       foreigner: false,
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleDelete = this.handleDelete.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.uploadFile = this.uploadFile.bind(this);
-  }
-
-  handleInputChange(event) {
-    var file = event.target.files[0].name
-    document.querySelector(".upload-file").value = file
-  }
-
-  handleDelete(event) {
-    const target = event.target;
-    var uploadBox = document.querySelectorAll("#upload-file");
-    var checkBox = document.querySelectorAll("input[type=checkbox]");
-
-    checkBox.forEach(function(box) {
-      if (box.checked) {
-        var name = box.name;
-        document.querySelector("#" + name + "-name").value = name.toUpperCase();
-        document.querySelector("#" + name + "-file").value = "";
-        box.checked = false;
-      }
-    })
   }
 
   handleOptionChange(event) {
@@ -54,7 +32,7 @@ class DocUploadForm extends React.Component {
   }
 
   render() {
-    //var params = this.props.match.params.value.split(',');
+    var params = this.props.match.params.value.split(',');
     var citizen = this.state.citizen;
 
     if(citizen) {
@@ -63,9 +41,9 @@ class DocUploadForm extends React.Component {
       var fileUploadBox = <FileUploadBox fileList={this.state.foreignerFileList} />
     }
 
-    //<UserDetails params={params}/>
     return (
       <div className="file-upload-form">
+        <UserDetails params={params}/>
         <form className="user-details-form" onSubmit={this.uploadFile}>
           <div className="radio-button">
             <b>Are you citizen?</b>
@@ -73,12 +51,6 @@ class DocUploadForm extends React.Component {
             <input className="no-button" type="radio" name="citizen" value="no" onChange={this.handleOptionChange}/>No
           </div>
           {fileUploadBox}
-          <div className="submit-docs">
-            <Link to="/complete">
-              <input className="submit-button" type="submit" value="Submit" />
-            </Link>
-              <input className="delete-button" type="button" value="Delete files" onClick={this.handleDelete}/>
-          </div>
         </form>
       </div>
     );
